@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { InputFile } from './features/csvForm/InputFile'
+import CsvUploadForm from './components/csvForm'
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <div>
-    <InputFile />
+      <CsvUploadForm />
     </div>
     )
 }
