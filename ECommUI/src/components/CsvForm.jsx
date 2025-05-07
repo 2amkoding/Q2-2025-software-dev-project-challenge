@@ -3,10 +3,27 @@ import { useForm } from "react-hook-form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+    file: z
+        .any()
+        .refine(
+            (file) => file?.[0]?.type === "text/csv",
+            "Only CSV files are allowed"
+        ),
+})
 
 
 export default function CsvUploadForm() {
-    const { register, handleSubmit } = useForm()
+    const { register, 
+            handleSubmit,
+            formState:  { errors },
+            watch, 
+          } = useForm({
+            resolver: zodResolver(schema),
+          });
 
     const onSubmit = (data) => {
         console.log("Uploaded file:", data.file[0])
