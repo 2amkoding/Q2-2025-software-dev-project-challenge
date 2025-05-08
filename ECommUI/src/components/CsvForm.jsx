@@ -34,9 +34,18 @@ export default function CsvUploadForm() {
             <div>
                 <Label htmlFor="file">Upload CSV file</Label>
                 <Input type="file" id="file" {...register("file")} />
+                {errors.file && (
+                    <p className="text-red-500 text-sm mt-1">{errors.file.message}</p>
+                )}
             </div>
 
             <Button type="submit">Submit</Button>
+
+            {watch("file")?.[0] && (
+                <p className="text-ms text-green-600 mt-2">
+                    Selected: {watch("file")[0].name}
+                </p>
+            )}
 
         </form>
     )
