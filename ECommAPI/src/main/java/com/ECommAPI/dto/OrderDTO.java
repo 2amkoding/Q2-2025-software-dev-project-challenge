@@ -1,4 +1,10 @@
-public record OrderDTO {
+package com.ECommAPI.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+public record OrderDTO (
 
     UUID orderID,
     LocalDateTime orderDate,
@@ -9,4 +15,4 @@ public record OrderDTO {
     BigDecimal totalAmount,
     String country,
     String city
-}
+){}
