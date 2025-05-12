@@ -3,17 +3,19 @@ package com.ECommAPI.mapper;
 import com.ECommAPI.dto.OrderDTO;
 import com.ECommAPI.entity.Order;
 import com.ECommAPI.service.OrderService;
+import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.xmlunit.util.Mapper;
+import org.springframework.web.bind.annotation.Mapping;
+
 
 @Mapper(componentModel="spring")
-public abstract class OrderMapper {
+public interface OrderMapper {
 
-    @Autowired
-    protected OrderService orderService;
 
-    public abstract OrderDTO orderToDTO(Order order);
+    @Mapping(target = "orderID", source = "orderID")
+    public OrderDTO orderToDTO(Order order);
 
-    public abstract Order DTOToOrder(OrderDTO orderDTO)
+    @Mapping(target = "orderID", source = "orderID")
+    public Order DTOToOrder(OrderDTO orderDTO);
 
 }
