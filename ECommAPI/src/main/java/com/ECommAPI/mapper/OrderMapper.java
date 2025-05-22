@@ -5,7 +5,7 @@ import com.ECommAPI.entity.Order;
 import com.ECommAPI.service.OrderService;
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.Mapping;
+import org.mapstruct.Mapping;
 
 
 @Mapper(componentModel="spring")
